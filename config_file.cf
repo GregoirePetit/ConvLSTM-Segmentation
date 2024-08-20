@@ -1,0 +1,18 @@
+[paths]
+video_folder         = data/videos
+labels_folder        = data/labels
+csv_path             = data/FileList.csv
+logger_path          = data/logs
+
+[training]
+batch_size           = 32
+sequence_length      = 25
+max_epochs           = 1000
+num_blocks           = 3
+num_layers_per_block = 3
+learning_rate        = 1e-3
+
+[model]
+input_shape          = (None, 112, 112, 1)
+num_filters          = 12
+kernel_size          = (3, 3)

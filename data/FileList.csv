@@ -1,0 +1,12 @@
+FileName,Split
+sample_000000,TRAIN
+sample_000001,TRAIN
+sample_000002,TRAIN
+sample_000003,TRAIN
+sample_000004,TRAIN
+sample_000005,TRAIN
+sample_000006,TRAIN
+sample_000007,VAL
+sample_000008,VAL
+sample_000009,TEST
+sample_000010,TEST
