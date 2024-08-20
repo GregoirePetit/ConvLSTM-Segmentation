@@ -1,3 +1,4 @@
+import argparse
 import os
 
 import torch
@@ -11,7 +12,14 @@ from pytorch_lightning.utilities import suggested_max_num_workers
 
 
 def main():
-    config = load_config()
+    parser = argparse.ArgumentParser(description="Train ConvLSTM2D model")
+    parser.add_argument(
+        "--config", type=str, default="config_file.cf", help="path to config file"
+    )
+    args = parser.parse_args()
+    path_config = args.config
+
+    config = load_config(path_config)
     video_folder = config["paths"]["video_folder"]
     labels_folder = config["paths"]["labels_folder"]
     csv_path = config["paths"]["csv_path"]
