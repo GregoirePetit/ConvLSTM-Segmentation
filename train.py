@@ -30,7 +30,6 @@ def main():
     max_epochs = int(config["training"]["max_epochs"])
     num_blocks = int(config["training"]["num_blocks"])
     num_layers_per_block = int(config["training"]["num_layers_per_block"])
-    learning_rate = float(config["training"]["learning_rate"])
 
     input_shape = eval(config["model"]["input_shape"])
     num_filters = int(config["model"]["num_filters"])
@@ -77,8 +76,8 @@ def main():
         monitor="val_loss",
         mode="min",
         save_last=True,
-        save_top_k=5,
-        filename="model-{epoch:02d}-{val_loss:.2f}",
+        save_top_k=1,
+        filename="model-{epoch:02d}-{val_loss:.10f}",
     )
 
     exists = False
