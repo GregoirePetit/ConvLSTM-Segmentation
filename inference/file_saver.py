@@ -26,11 +26,12 @@ def process_videos_in_folder(video_folder, model, output_folder):
         output_path = os.path.join(
             output_folder, os.path.splitext(video_file)[0] + ".npy"
         )
-
-        print(f"Processing {video_file}...")
-        segmented_frames = segment_video(model, video_path)
-        save_segmented_frames_as_npy(segmented_frames, output_path)
-        print(f"Saved segmented output to {output_path}")
-        output_path = os.path.splitext(output_path)[0] + ".npz"
-        save_segmented_frames_as_npz(segmented_frames, output_path)
-        print(f"Saved segmented output to {output_path}")
+        if not os.path.exists(output_path):
+            print(f"Processing {video_file}...")
+            segmented_frames = segment_video(model, video_path)
+            save_segmented_frames_as_npy(segmented_frames, output_path)
+            print(f"Saved segmented output to {output_path}")
+        if not os.path.exists(output_path):
+            output_path = os.path.splitext(output_path)[0] + ".npz"
+            save_segmented_frames_as_npz(segmented_frames, output_path)
+            print(f"Saved segmented output to {output_path}")
