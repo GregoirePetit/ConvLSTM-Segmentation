@@ -1,6 +1,7 @@
 import os
 
 import numpy as np
+import torch
 from inference.video_processor import segment_video
 
 
@@ -10,10 +11,8 @@ def save_segmented_frames_as_npy(segmented_frames, output_path):
 
 def save_segmented_frames_as_npz(segmented_frames, output_path):
     normalized_video = (
-        (segmented_frames - np.min(segmented_frames))
-        / (np.max(segmented_frames) - np.min(segmented_frames))
-        * 255
-    ).astype(np.uint8)
+        (torch.sigmoid(torch.tensor(segmented_frames)) * 255).numpy().astype(np.uint8)
+    )
     np.savez_compressed(output_path, normalized_video)
 
 
@@ -26,12 +25,12 @@ def process_videos_in_folder(video_folder, model, output_folder):
         output_path = os.path.join(
             output_folder, os.path.splitext(video_file)[0] + ".npy"
         )
+        segmented_frames = segment_video(model, video_path)
         if not os.path.exists(output_path):
-            print(f"Processing {video_file}...")
-            segmented_frames = segment_video(model, video_path)
+            # print(f"Processing {video_file}...")
             save_segmented_frames_as_npy(segmented_frames, output_path)
-            print(f"Saved segmented output to {output_path}")
-        if not os.path.exists(output_path):
-            output_path = os.path.splitext(output_path)[0] + ".npz"
-            save_segmented_frames_as_npz(segmented_frames, output_path)
-            print(f"Saved segmented output to {output_path}")
+            # print(f"Saved segmented output to {output_path}")
+        output_path = os.path.splitext(output_path)[0] + ".npz"
+        # if not os.path.exists(output_path):
+        save_segmented_frames_as_npz(segmented_frames, output_path)
+        # print(f"Saved segmented output to {output_path}")
