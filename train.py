@@ -83,15 +83,18 @@ def main():
     exists = False
     i = 0
     last_checkpoint = None
+    # logger_path = logger_path = /gpfs/data/fs72304/gregoire_p/multi_annotators/logs/
+    # checkpoint_path = /gpfs/data/fs72304/gregoire_p/multi_annotators/logs/ConvLSTM2D_lightning_B1_l1/version_0/last.ckpt
     while os.path.exists(
-        f"{logger_path}/torch_B{num_blocks}_l{num_layers_per_block}/ConvLSTM2D_lightning_B{num_blocks}_l{num_layers_per_block}/version_{i}"
+        f"{logger_path}/ConvLSTM2D_lightning_B{num_blocks}_l{num_layers_per_block}/version_{i}/last.ckpt"
     ):
         i += 1
         if os.path.exists(
-            f"{logger_path}/torch_B{num_blocks}_l{num_layers_per_block}/ConvLSTM2D_lightning_B{num_blocks}_l{num_layers_per_block}/version_{i-1}/last.ckpt"
+            f"{logger_path}/ConvLSTM2D_lightning_B{num_blocks}_l{num_layers_per_block}/version_{i-1}/last.ckpt"
         ):
             exists = True
-            last_checkpoint = f"{logger_path}/torch_B{num_blocks}_l{num_layers_per_block}/ConvLSTM2D_lightning_B{num_blocks}_l{num_layers_per_block}/version_{i-1}/last.ckpt"
+            last_checkpoint = f"{logger_path}/ConvLSTM2D_lightning_B{num_blocks}_l{num_layers_per_block}/version_{i-1}/last.ckpt"
+            
 
     trainer = Trainer(
         max_epochs=max_epochs,
