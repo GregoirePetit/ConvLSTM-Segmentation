@@ -3,6 +3,7 @@ from models import ConvLSTM2Dlightning
 
 
 def load_model(checkpoint_path, config):
+    """Load the model from the checkpoint path and config."""
     input_shape = eval(config["model"]["input_shape"])
     num_filters = int(config["model"]["num_filters"])
     kernel_size = eval(config["model"]["kernel_size"])

@@ -1,0 +1,6 @@
+torch>=1.10
+opencv-python
+pytorch-lightning
+numpy
+pandas
+tensorboard
