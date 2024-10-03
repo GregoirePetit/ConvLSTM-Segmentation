@@ -108,7 +108,7 @@ To run inference on a video file, use the run_inference.py script:
 If you find this code useful in your research, please consider citing using the following BibTeX entry, authors are Grégoire Petit and Nathan Palluau
 
 ```
-@misc{petit2022convlstmsegmentation,
+@misc{petit2024convlstmsegmentation,
     author = {Petit, Grégoire and Palluau, Nathan},
     title = {ConvLSTM-Segmentation},
     year = {2024},
