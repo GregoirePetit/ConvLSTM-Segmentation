@@ -38,14 +38,8 @@ pip install -r requirements.txt
 ### Clone the Repository
 
 ```bash
-git clone https://github.com/GregoirePetit/ConvLSTM-Segmentation.git
+git clone git@github.com:GregoirePetit/ConvLSTM-Segmentation.git
 cd ConvLSTM-Segmentation
-```
-
-### Install Dependencies
-
-```bash
-pip install -r requirements.txt
 ```
 
 ## Directory Structure
