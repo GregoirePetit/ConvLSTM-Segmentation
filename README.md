@@ -77,27 +77,27 @@ Edit the config_file.cf file to specify the paths to your dataset and adjust hyp
 
 Run the following command to start training:
     
-    ```bash
-    python train.py --config config_file.cf
-    ```
+```bash
+python train.py --config config_file.cf
+```
 
 This script will automatically load the data, initialize the model, and begin training. It also supports checkpointing and resuming from the last saved state.
 
 # Logging and Checkpoints
 
 Training logs and model checkpoints will be saved in the directory specified in the configuration file. You can monitor the training process using TensorBoard:
-    
-    ```bash
-    tensorboard --logdir logger_path
-    ```
+
+```bash
+tensorboard --logdir logger_path
+```
 
 # Run Inference
 
 To run inference on a video file, use the run_inference.py script:
     
-    ```bash
-    python run_inference.py --video_path path/to/video.avi
-    ```
+```bash
+python run_inference.py --video_path path/to/video.avi
+```
 
 # Project example that uses this code
 
@@ -107,7 +107,7 @@ To run inference on a video file, use the run_inference.py script:
 
 If you find this code useful in your research, please consider citing using the following BibTeX entry, authors are Grégoire Petit and Nathan Palluau
 
-```
+```bash
 @misc{petit2024convlstmsegmentation,
     author = {Petit, Grégoire and Palluau, Nathan},
     title = {ConvLSTM-Segmentation},
